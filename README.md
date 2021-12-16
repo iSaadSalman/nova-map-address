@@ -77,7 +77,7 @@ use iSaadSalman\MapAddress\MapAddress;
 
 ## Support:
 
-* Jose Vicente Orts: vince@square1.io
+*  Saad: https://www.buymeacoffee.com/saadsalman
 
 ## License
 
