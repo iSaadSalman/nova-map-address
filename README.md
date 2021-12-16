@@ -1,6 +1,6 @@
 ## Nova Map Address Field
 
-A Nova field to place a marker on map to get coordinates then it reverse geocoding the coordinates to get a street address
+A Nova field to place a marker on map to get coordinates then it reverse geocoding the coordinates to get a street address. Address field can have autocomplete feature and coordinates can be entered manually in Lat & Lng feilds.
 
 ## Installation
 
@@ -27,7 +27,7 @@ Optional: Set map and address language
 MAP_ADDRESS_LANGUAGE=es
 ```
 
-_If you need a Google Maps API key, you can create an app and enable Places API and create credentials to get your API key https://console.developers.google.com._
+_If you need a Google Maps API key, you can create an app and enable Places API and create credentials to get your API key https://console.developers.google.com. Make sure to enable Places API _
 
 ## Usage:
 Add the below to Nova/{Model}.php resource:
@@ -56,6 +56,16 @@ use iSaadSalman\MapAddress\MapAddress;
     MapAddress::make('address')
         ->setGoogleResultType('street_address'),
     
+    // Enable Drag for the markers
+     MapAddress::make('address')
+        ->initLocation(38.261842, -0.6868031)
+        ->enableDrag(true),
+
+    // Enable auto complete for address field
+     MapAddress::make('address')
+        ->initLocation(38.261842, -0.6868031)
+        ->enableAutocomplete(true),
+
     // You can also set the map zoom level. By default (4)
      MapAddress::make('address')
         ->initLocation(38.261842, -0.6868031)
