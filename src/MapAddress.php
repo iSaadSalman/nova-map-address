@@ -1,8 +1,9 @@
 <?php
 
-namespace Josrom\MapAddress;
+namespace ISaadSalman\MapAddress;
 
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class MapAddress extends Field
 {
@@ -12,6 +13,9 @@ class MapAddress extends Field
      * @var string
      */
     public $component = 'map_address';
+
+    public $latField = 'lat';
+    public $lngField = 'lng';
 
     /**
      * Set the initial location.
@@ -59,6 +63,35 @@ class MapAddress extends Field
         ]);
     }
 
+
+    /**
+     * Set marker dragibility.
+     *
+     * @param $dragEnabled
+     *
+     * @return self
+     */
+    public function enableDrag($dragEnabled)
+    {
+        return $this->withMeta([
+            'drag_enabled' => $dragEnabled,
+        ]);
+    }
+
+    /**
+     * Set autocomplete.
+     *
+     * @param $dragEnabled
+     *
+     * @return self
+     */
+    public function enableAutocomplete($autoComplateEnable)
+    {
+        return $this->withMeta([
+            'enable_autocomplete' => $autoComplateEnable,
+        ]);
+    }
+
     /**
      * Set the latitude field name.
      *
@@ -68,6 +101,7 @@ class MapAddress extends Field
      */
     public function setLatitudeField($latitude)
     {
+        $this->latField = $latitude;
         return $this->withMeta([
             'latitude' => $latitude,
         ]);
@@ -82,6 +116,9 @@ class MapAddress extends Field
      */
     public function setLongitudeField($longitude)
     {
+
+        $this->lngField = $longitude;
+
         return $this->withMeta([
             'longitude' => $longitude,
         ]);
@@ -96,8 +133,24 @@ class MapAddress extends Field
      */
     public function setGoogleResultType($type)
     {
+
         return $this->withMeta([
             'google_result_type' => $type,
         ]);
+    }
+
+    protected function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)
+    {
+
+        if ($request->exists($requestAttribute)) {
+            $model->{$attribute} = $request[$requestAttribute];
+        }
+
+        // Update lat & lng
+        if ($request->exists('lat') && $request->exists('lng') ) {
+            $model->{$this->latField} = $request->get('lat');
+            $model->{$this->lngField} = $request->get('lng');
+        }
+
     }
 }

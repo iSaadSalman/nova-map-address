@@ -1,6 +1,6 @@
 <?php
 
-namespace Josrom\MapAddress;
+namespace ISaadSalman\MapAddress;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
@@ -42,11 +42,12 @@ class FieldServiceProvider extends ServiceProvider
     private function googleMapsSource()
     {
         return vsprintf(
-            'https://maps.googleapis.com/maps/api/js?key=%s&language=%s',
+            'https://maps.googleapis.com/maps/api/js?key=%s&language=%s&libraries=places',
             [
                 Config::get('map-address.api_key'),
                 Config::get('map-address.language'),
             ]
         );
+
     }
 }

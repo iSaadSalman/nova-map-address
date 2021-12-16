@@ -1,28 +1,28 @@
 {
-    "name": "josrom/nova-map-address",
-    "description": "A Laravel Nova field to place a marker on map to get coordinates then it reverse geocoding the coordinates to get a street address",
+    "name": "i-saad-salman/nova-map-address",
+    "description": "A Laravel Nova field to place a marker on map to get coordinates then it reverse geocoding the coordinates to get a street address. It also provides auto complete functionality",
     "keywords": [
         "laravel",
         "nova",
         "geocoding",
         "address",
         "geo",
-        "map"
+        "map",
+        "autocomplete"
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0",
-        "illuminate/support": "^5.7|^6.0"
+        "php": ">=7.1.0"
     },
     "autoload": {
         "psr-4": {
-            "Josrom\\MapAddress\\": "src/"
+            "ISaadSalman\\MapAddress\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Josrom\\MapAddress\\FieldServiceProvider"
+                "ISaadSalman\\MapAddress\\FieldServiceProvider"
             ]
         }
     },

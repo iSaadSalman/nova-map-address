@@ -7,13 +7,13 @@ A Nova field to place a marker on map to get coordinates then it reverse geocodi
 You can install the package in to a Laravel app that uses Nova via composer:
 
 ```bash
-composer require josrom/nova-map-address
+composer require i-saad-salman/nova-map-address
 ```
 
 ## Configuration
 Publish the package config file:
 ```bash
-php artisan vendor:publish --provider="Josrom\MapAddress\FieldServiceProvider"
+php artisan vendor:publish --provider="iSaadSalman\MapAddress\FieldServiceProvider"
 ```
 
 This is the contents of the file which will be published at [config/map-address.php](config/map-address.php).
@@ -34,7 +34,7 @@ Add the below to Nova/{Model}.php resource:
 
 ```php
 
-use Josrom\MapAddress\MapAddress;
+use iSaadSalman\MapAddress\MapAddress;
 
 [
     MapAddress::make('address'),
