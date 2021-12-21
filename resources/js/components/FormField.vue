@@ -150,7 +150,7 @@
 
 
             if (this.field.enable_autocomplete) {
-                var autocomplete = new google.maps.places.Autocomplete((this.$refs.autocomplete), {types: ['geocode']});
+                var autocomplete = new google.maps.places.Autocomplete((this.$refs.autocomplete), {types: ['geocode', 'establishment', 'address', 'cities']});
                 autocomplete.bindTo("bounds", map);
 
                 autocomplete.addListener("place_changed", () => {
