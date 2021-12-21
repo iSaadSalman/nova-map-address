@@ -13,7 +13,7 @@ composer require i-saad-salman/nova-map-address
 ## Configuration
 Publish the package config file:
 ```bash
-php artisan vendor:publish --provider="iSaadSalman\MapAddress\FieldServiceProvider"
+php artisan vendor:publish --provider="ISaadSalman\MapAddress\FieldServiceProvider"
 ```
 
 This is the contents of the file which will be published at [config/map-address.php](config/map-address.php).
