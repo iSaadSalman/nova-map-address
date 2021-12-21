@@ -27,9 +27,9 @@ Optional: Set map and address language
 MAP_ADDRESS_LANGUAGE=es
 ```
 
-_ If you need a Google Maps API key, you can create an app and enable Places API and create credentials to get your API key https://console.developers.google.com. Make sure to enable Places API _
+If you need a Google Maps API key, you can create an app and enable Places API and create credentials to get your API key https://console.developers.google.com. Make sure to enable Places API
 
-_ To save lat & lng packages expects 2 feilds which you can configure. In addition to this it expects and address field _
+To save lat & lng packages expects 2 feilds which you can configure. In addition to this it expects and address field
 
 ## Usage:
 Add the below to Nova/{Model}.php resource:
